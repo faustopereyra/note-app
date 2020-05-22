@@ -1,8 +1,11 @@
 import React from 'react';
 import './App.css';
+import { Switch, Route } from "react-router-dom";
 
-import { Header } from "./components/header/header.component"
-import { NoteGrid } from "./components/note-grid/note-grid.component"
+
+import HomePage from './layouts/homepage/homepage.component';
+import SignInPage from './layouts/sign-in-page/SignInPage.component';
+import SignUpPage from './layouts/sign-up-page/SignUpPage.component';
 
 
 
@@ -12,8 +15,7 @@ class App extends React.Component {
 
     //set up state with default values
     this.state = {
-      notes: [],
-      searchField: ""
+      currentUser: null
     };
   };
 
@@ -21,21 +23,17 @@ class App extends React.Component {
     //Load Notes
   }
 
-  //Sets searchFields to what it is on the search field
-  handleChange = (e) => {
-    this.setState({ searchField: e.target.value })
-  }
+
 
   render() {
-    const { notes, searchField } = this.state;
-    //Filter Notes
-    const filteredNotes = notes.filter(note => {
-      note.title.toLowerCase().includes(searchField.toLowerCase())
-    })
     return (
-      <div className="App">
-        <Header handleChange={this.handleChange} />
-        <NoteGrid notes={filteredNotes} />
+      <div>
+
+        <Switch>
+          <Route exact path='/' component={HomePage} />
+          <Route path='/signin' component={SignInPage} />
+          <Route path='/signup' component={SignUpPage} />
+        </Switch>
       </div>
     )
   }
