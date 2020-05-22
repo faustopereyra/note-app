@@ -7,6 +7,8 @@ import HomePage from './layouts/homepage/homepage.component';
 import SignInPage from './layouts/sign-in-page/SignInPage.component';
 import SignUpPage from './layouts/sign-up-page/SignUpPage.component';
 
+import { auth } from "./firebase/firebase.util"
+
 
 
 class App extends React.Component {
@@ -19,11 +21,21 @@ class App extends React.Component {
     };
   };
 
+  unsubscribeFromAuth = null;
+
   componentDidMount() {
-    //Load Notes
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+      this.setState({currentUser: user});
+
+      console.log(user)
+    });
   }
 
+  componentWillUnmunt() {
+    this.unsubscribeFromAuth();
+  }
 
+S
 
   render() {
     return (

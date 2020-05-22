@@ -8,8 +8,8 @@ import { signInWithGoogle } from "../../firebase/firebase.util";
 import "./sign-in.style.scss"
 
 class SignIn extends React.Component {
-    constructor() { //agregar props???
-        super();
+    constructor(props) { //agregar props???
+        super(props);
 
         this.state = {
             email: "",
@@ -31,31 +31,32 @@ class SignIn extends React.Component {
 
     render() {
         return (
-            <div class="grid">
+            <div className="form">
 
-                <form className="form login" onSubmit={this.handleSubmit} >
+                <form className="login-form" onSubmit={this.handleSubmit} >
 
                     <FormInput
                         name="email"
                         type="email"
+                        placeholder="email"
                         handleChange={this.handleChange}
                         value={this.state.email}
-                        label="email"
                         required
                     />
                     <FormInput
                         name="password"
                         type="password"
+                        placeholder="password"
                         handleChange={this.handleChange}
                         value={this.state.password}
-                        label="password"
                         required
                     />
 
-                    <CustomButton type="submit"> Sing in</CustomButton>
-                    <CustomButton onClick={signInWithGoogle}> Sing in with Google</CustomButton>
+                    <CustomButton type="submit"> Sign in</CustomButton>
+                    <CustomButton onClick={signInWithGoogle} isGoogleSignIn> Sign in with Google</CustomButton>
+                    <p className="message">Not registered? <a href="/signup">Create an account</a></p>
                 </form>
-                <p class="text--center">Not a member? <a href="#">Sign up now</a></p>
+                
             </div>
         )
     }
