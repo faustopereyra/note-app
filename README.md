@@ -12,3 +12,5 @@ TO - DO
 -[ ] Almacenarlos en BD
 
 -[ ] Reques Notas
+
+- [ ] Mercury
