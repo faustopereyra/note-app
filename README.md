@@ -2,7 +2,7 @@
 
 TO - DO
 
-- [ ] Sign in / Sign up
+- [x] Sign in / Sign up
 
 - [ ] Autenticar Usuarios
 
