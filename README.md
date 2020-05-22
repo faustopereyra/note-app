@@ -3,14 +3,13 @@
 
 TO - DO
 
--[ ] Sign in / Sign up
+- [ ] Sign in / Sign up
 
--[ ] Autenticar Usuarios
+- [ ] Autenticar Usuarios
 
--[ ]Crear Notas
+- [ ] Crear Notas
 
--[ ] Almacenarlos en BD
+- [ ] Almacenarlos en BD
 
--[ ] Reques Notas
+- [ ] Request Notas
 
-- [ ] Mercury
