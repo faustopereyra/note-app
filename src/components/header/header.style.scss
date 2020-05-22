@@ -1,0 +1,25 @@
+.header{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-bottom: #FFF951 1px solid;
+    margin-bottom: 50px;
+
+    &-img {
+    width: 60%;
+    height: auto;
+    }
+
+    &-text-area{
+    position: relative;
+    }
+}
+
+.lupa{
+    position: absolute;
+    width: 3.5%;
+    color: #FFF951;
+    top: 50%;
+    left: 4%;
+    transform: translate(-50%, -50%);
+}
