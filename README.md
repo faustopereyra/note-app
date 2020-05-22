@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -66,3 +67,20 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+=======
+# note-app
+
+
+TO - DO
+
+- [ ] Sign in / Sign up
+
+- [ ] Autenticar Usuarios
+
+- [ ] Crear Notas
+
+- [ ] Almacenarlos en BD
+
+- [ ] Request Notas
+
+>>>>>>> 0c1a55c485c36e7033e7cd22c355f3a14111724e
