@@ -3,7 +3,7 @@ import React from "react";
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component"
 
-import { signInWithGoogle } from "../../firebase/firebase.util";
+import { signInWithGoogle, signInWithEmailAndPassword } from "../../firebase/firebase.util";
 
 import "./sign-in.style.scss"
 
@@ -29,6 +29,12 @@ class SignIn extends React.Component {
         this.setState({ [name]: value }); //que pasa si saco los parentecis?
     };
 
+    passValues = () => { 
+        console.log( "se a clickeado",  this.state.email, this.state.password);
+        signInWithEmailAndPassword(this.state.email,this.state.password)
+
+    }
+
     render() {
         return (
             <div className="form">
@@ -52,7 +58,7 @@ class SignIn extends React.Component {
                         required
                     />
 
-                    <CustomButton type="submit"> Sign in</CustomButton>
+                    <CustomButton onClick={this.passValues} value={this.state.email} > Sign in</CustomButton>
                     <CustomButton onClick={signInWithGoogle} isGoogleSignIn> Sign in with Google</CustomButton>
                     <p className="message">Not registered? <a href="/signup">Create an account</a></p>
                 </form>
