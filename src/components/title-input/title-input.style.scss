@@ -1,0 +1,27 @@
+.new-title{
+    margin: 20px 5%;
+    margin-bottom: 10px;
+    height: 35px;
+    width: 80%;
+    font-family: "segoe UI";
+    font-weight: 500;
+    font-size: 30px;
+    background-color: #E9AC51;
+    color: #222222;
+    border: none;
+    
+    &::placeholder{
+        color: #222222;
+        font-family: "segoe UI";
+        font-size: 30px;
+    }
+   
+    
+}
+
+.create-title{
+    background-color: #E9AC51;
+    border-bottom: #222222 solid 1px;
+    margin-left: 2%;
+    width: 95%;
+}

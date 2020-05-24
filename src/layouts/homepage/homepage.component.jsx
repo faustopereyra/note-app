@@ -3,6 +3,7 @@ import React from 'react';
 import { Header } from "../../components/header/header.component"
 import { NoteGrid } from "../../components/note-grid/note-grid.component"
 import OptionButton from "../../components/option-button/option-button.component"
+import AddNote from "../../components/add-note/add-note.component"
 
 
 
@@ -29,13 +30,13 @@ class HomePage extends React.Component {
         this.setState({ searchField: e.target.value })
     }
 
-    toggle = (stateObject) => {
-        let toggle = !this.state.stateObject;
-        console.log(toggle)
-        //this.setState({ stateObject: toggle })
-    }
+    toggleAddNote = (e) => {
+        let toggle = !this.state.addNoteActive;
+        this.setState({ addNoteActive: toggle })
+        console.log("note added")
+    };
 
-    togglePlus = (e) => {
+    toggleOption = (e) => {
         //toggle(!this.state.optionActive)
         let toggle = !this.state.optionActive;
         this.setState({ optionActive: toggle })
@@ -51,7 +52,8 @@ class HomePage extends React.Component {
             <div className="App">
                 <Header handleChange={this.handleChange} />
                 <NoteGrid notes={filteredNotes} />
-                <OptionButton active={this.state.optionActive} togglePlus={this.togglePlus}/>
+                <OptionButton optionActive={this.state.optionActive} toggleOption={this.toggleOption} toggleAddNote={this.toggleAddNote} />
+                <AddNote />
             </div>
         )
     }

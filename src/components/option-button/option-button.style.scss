@@ -1,20 +1,20 @@
 .plus {
-    width: 100px;
+    width: 4vw;
     cursor:pointer;
     transition: all .3s ease 0s;
-    height: 100px;
+    height: 4vw;
     background: #FFF951;
     border-radius: 50%;
     display: flex;
     position: relative;
     &__line {
-      width: 6px;
-      height: 50px;
+      width: 4px;
+      height: 2vw;
       background: #000;
       border-radius:10px;
       position: absolute;
-      left: calc(50% - 3px);
-      top: calc(50% - 25px);
+      left: calc(50% - 2.5px);
+      top: calc(50% - 13px);
       &--h {
         transform: rotate(90deg);
       } 
@@ -38,18 +38,19 @@
       height:32px;
       border-radius:30px;
       .plus__line--v {
-        height: 68px;
-        top: calc(-100% - 60px);
-        padding:0 5px;
+        height: 32vh;
+        top: calc(-100% - 30vh);
+        padding:0 30px;
         box-sizing:border-box;
-        width: 220px; 
+        width: 3vw; 
         border-radius: 60px;
-        left: calc(50% - 110px);
+        left: calc(50% - 30px);
+        flex-direction: column;
       }
       .plus__link{
         opacity:1;
         visibility:visible;
-        transform:scale(1);
+        transform:scale(0.8);
         transition-delay: .05s;
       }
     }
@@ -57,6 +58,6 @@
 
 .btn-position{
     position: fixed;
-    top: 90vh;
-    right: 4vw;
+    top: 86vh;
+    right: 6vw;
 }

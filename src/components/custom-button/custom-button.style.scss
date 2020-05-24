@@ -1,29 +1,43 @@
 .custom-button {
-    font-family: "Roboto", sans-serif;
-    text-transform: uppercase;
-    outline: 0;
-    background: #FFBA08;
-    width: 100%;
-    border: 0;
-    padding: 15px;
-    color: #FFFFFF;
-    font-size: 14px;
-    -webkit-transition: all 0.3 ease;
-    transition: all 0.3 ease;
-    cursor: pointer;
-    margin-bottom: 10px;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #FFBA08;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  margin-bottom: 10px;
 
-    &:hover, &:active, &:focus {
-        background: #FAA307;
+  &:hover, &:active, &:focus {
+    background: #FAA307;
+  }
+
+  &.google-sign-in {
+    background-color: #4285f4;
+    color: white;
+  
+    &:hover {
+      background-color: #357ae8;
+      border: none;
     }
+  }
 
-    &.google-sign-in {
-        background-color: #4285f4;
-        color: white;
-    
-        &:hover {
-          background-color: #357ae8;
-          border: none;
-        }
-      }
+  &.btn-black{
+    background-color: #E9AC51;
+    color: #222222;
+    font-family: "segoe UI";
+    font-weight: bold;
+    padding: 8px 20px;
+    border: #222222 solid 2px;
+    border-radius: 10px;
+    text-align: center;
+    float: right;
+    margin-right: 3%;
+    width: 15%;
+  }
 }
