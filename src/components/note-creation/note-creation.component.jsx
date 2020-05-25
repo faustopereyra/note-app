@@ -10,7 +10,7 @@ const NoteCreation = props => (
     <div className="note-creation">
         <TitleInput defaultTitle={props.title} />
         <TextInput defaultText={props.text} />
-        <CustomButton setClass="btn-black" >Done!</CustomButton>
+        <CustomButton setClass="btn-black" toggleAddNote={props.toggleAddNote} >Done!</CustomButton>
     </div>
 )
 

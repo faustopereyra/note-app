@@ -1,15 +1,15 @@
 .plus {
-    width: 4vw;
+    width: 50px;
     cursor:pointer;
     transition: all .3s ease 0s;
-    height: 4vw;
+    height: 50px;
     background: #FFF951;
     border-radius: 50%;
     display: flex;
     position: relative;
     &__line {
       width: 4px;
-      height: 2vw;
+      height: 25px;
       background: #000;
       border-radius:10px;
       position: absolute;

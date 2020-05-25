@@ -4,7 +4,7 @@ import { Header } from "../../components/header/header.component"
 import { NoteGrid } from "../../components/note-grid/note-grid.component"
 import OptionButton from "../../components/option-button/option-button.component"
 import AddNote from "../../components/add-note/add-note.component"
-
+//import { toggleAddNewNote } from "./redux/note/note.actions";
 
 
 
@@ -53,7 +53,8 @@ class HomePage extends React.Component {
                 <Header handleChange={this.handleChange} />
                 <NoteGrid notes={filteredNotes} />
                 <OptionButton optionActive={this.state.optionActive} toggleOption={this.toggleOption} toggleAddNote={this.toggleAddNote} />
-                <AddNote />
+                <AddNote addNoteActive={this.state.addNoteActive} toggleAddNote={this.toggleAddNote} />
+
             </div>
         )
     }
@@ -61,3 +62,5 @@ class HomePage extends React.Component {
 }
 
 export default HomePage;
+
+//<AddNote addNoteActive={this.state.addNoteActive} toggleAddNote={this.toggleAddNote} />
