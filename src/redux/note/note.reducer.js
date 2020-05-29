@@ -7,7 +7,7 @@ const noteReducer = (state = INITIAL_STATE, action) => {
         case "TOGGLE_ADD_NEW_NOTE":
             return {
                 ...state,
-                addNoteActive: action.payload
+                addNoteActive: !state.addNoteActive
             };
         default:
             return state;

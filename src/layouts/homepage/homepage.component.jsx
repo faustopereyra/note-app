@@ -4,12 +4,36 @@ import { Header } from "../../components/header/header.component"
 import { NoteGrid } from "../../components/note-grid/note-grid.component"
 import OptionButton from "../../components/option-button/option-button.component"
 import AddNote from "../../components/add-note/add-note.component"
-//import { toggleAddNewNote } from "./redux/note/note.actions";
+import { connect } from 'react-redux';
+import { toggleAddNewNote } from "../../redux/note/note.actions";
 
 
 
-class HomePage extends React.Component {
-    constructor() {
+const HomePage = ({ addNoteActive, toggleAddNewNote }) => (
+    <div className="App" >
+        <Header />
+        <OptionButton onClick={toggleAddNewNote} />
+        <div>
+            {addNoteActive ?
+                <AddNote /> : null}
+        </div>
+
+    </div >
+);
+
+const mapStateToProps = state => ({
+    addNoteActive: state.note.addNoteActive
+})
+
+const mapDispatchToProps = dispatch => ({
+    toggleAddNewNote: () => dispatch(toggleAddNewNote)
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+
+
+/*constructor() {
         super()
 
         //set up state with default values
@@ -17,7 +41,7 @@ class HomePage extends React.Component {
             notes: [],
             searchField: "",
             optionActive: false,
-            addNoteActive: false
+            addNoteActive: false //Tengo que
         };
     };
 
@@ -30,6 +54,7 @@ class HomePage extends React.Component {
         this.setState({ searchField: e.target.value })
     }
 
+    //tengo que hacerlo actualizar el note reducer.
     toggleAddNote = (e) => {
         let toggle = !this.state.addNoteActive;
         this.setState({ addNoteActive: toggle })
@@ -43,24 +68,8 @@ class HomePage extends React.Component {
     };
 
     render() {
-        const { notes, searchField } = this.state;
-        //Filter Notes
-        const filteredNotes = notes.filter(note => {
-            note.title.toLowerCase().includes(searchField.toLowerCase())
-        })
-        return (
-            <div className="App">
-                <Header handleChange={this.handleChange} />
-                <NoteGrid notes={filteredNotes} />
-                <OptionButton optionActive={this.state.optionActive} toggleOption={this.toggleOption} toggleAddNote={this.toggleAddNote} />
-                <AddNote addNoteActive={this.state.addNoteActive} toggleAddNote={this.toggleAddNote} />
-
-            </div>
-        )
-    }
-
-}
-
-export default HomePage;
-
-//<AddNote addNoteActive={this.state.addNoteActive} toggleAddNote={this.toggleAddNote} />
+    const { notes, searchField } = this.state;
+    //Filter Notes
+    const filteredNotes = notes.filter(note => {
+        note.title.toLowerCase().includes(searchField.toLowerCase())
+    })*/

@@ -1,4 +1,3 @@
-export const toggleAddNewNote = noteActive => ({
+export const toggleAddNewNote = () => ({
     type: "TOGGLE_ADD_NEW_NOTE",
-    payload: noteActive
 });

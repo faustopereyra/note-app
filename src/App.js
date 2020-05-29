@@ -25,6 +25,7 @@ class App extends React.Component {
 
   unsubscribeFromAuth = null;
 
+  //Add user to db if it dont exist and add it to the user reducer
   componentDidMount() {
     const { setCurrentUser } = this.props;
 
@@ -47,6 +48,7 @@ class App extends React.Component {
     });
   }
 
+  //prevent user leak
   componentWillUnmunt() {
     this.unsubscribeFromAuth();
   }
