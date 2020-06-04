@@ -60,18 +60,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
         this.setState({ searchField: e.target.value })
     }
 
-    //tengo que hacerlo actualizar el note reducer.
-    toggleAddNote = (e) => {
-        let toggle = !this.state.addNoteActive;
-        this.setState({ addNoteActive: toggle })
-        console.log("note added")
-    };
-
-    toggleOption = (e) => {
-        //toggle(!this.state.optionActive)
-        let toggle = !this.state.optionActive;
-        this.setState({ optionActive: toggle })
-    };
 
     render() {
     const { notes, searchField } = this.state;

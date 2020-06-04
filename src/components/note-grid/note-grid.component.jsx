@@ -9,11 +9,12 @@ import "./note-grid.style.scss";
 import { connect } from "react-redux";
 
 const NoteGrid = props => {
+    let notes;
+
     useEffect(() => {
         //console.log(props.userId)
         if (props.userId && props.userId.id) {
             getNotes(props.userId)
-
         }
     })
     return (
@@ -29,6 +30,6 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps)(NoteGrid)
 
-/*{props.notes.map(note => (
-            <Note key={note.id} note={note} />
-        ))}*/
+/*{notes.map(note => (
+                <Note key={note.id} note={note} />
+            ))}*/

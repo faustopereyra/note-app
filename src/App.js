@@ -14,14 +14,9 @@ import { setCurrentUser } from "./redux/user/user.actions"
 
 
 class App extends React.Component {
-  /*constructor() {
+  constructor() {
     super()
-
-    //set up state with default values
-    this.state = {
-      currentUser: null
-    };
-  };*/
+  };
 
   unsubscribeFromAuth = null;
 

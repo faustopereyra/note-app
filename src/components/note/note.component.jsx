@@ -9,7 +9,7 @@ export const Note = props => (
                 {props.note.title}
             </div>
             <div class="note-text">
-                {props.note.text}
+                {props.note.maintext}
             </div>
 
         </div>

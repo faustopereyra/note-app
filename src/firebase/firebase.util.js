@@ -64,17 +64,15 @@ export const deleteNote = () => { }
 export const getNotes = async (userId) => {
 
     firestore.collection("notes").where("user", "==", `${userId.id}`).get().then(function (querySnapshot) {
-        console.log(querySnapshot)
-        console.log(userId.id)
+        let notes = [];
         querySnapshot.forEach(function (doc) {
-            console.log(doc.id, " => ", doc.data());
+            notes.push(doc.data())
         });
+        return notes
     })
         .catch(function (error) {
             console.log("Error getting documents: ", error);
         });
-
-
 }
 
 export const auth = firebase.auth();
