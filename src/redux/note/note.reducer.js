@@ -31,6 +31,11 @@ const noteReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 currentNote: null
             }
+        case "ADD_NOTES":
+            return{
+                ...state,
+                notes: action.payload
+            }
         default:
             return state;
     }

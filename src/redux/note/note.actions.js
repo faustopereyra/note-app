@@ -15,3 +15,8 @@ export const addCurrentText = (e) => ({
     type: "ADD_CURRENT_TEXT",
     payload: e
 });
+
+export const addNotes = (notes) => ({
+    type: "ADD_NOTES",
+    payload: notes
+})

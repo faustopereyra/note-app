@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import { Header } from "../../components/header/header.component"
 import NoteGrid from "../../components/note-grid/note-grid.component"
@@ -8,11 +8,45 @@ import AddNote from "../../components/add-note/add-note.component"
 import { connect } from 'react-redux';
 
 import { toggleAddNewNote } from "../../redux/note/note.actions";
+import {addNotes} from "../../redux/note/note.actions"
+import {firestore} from "../../firebase/firebase.util"
 
 
 
 
-const HomePage = (props) => (
+const HomePage = (props) => {
+    const getNotes = async (userId) => {
+
+        const noteRef = firestore.collection("notes").where("user", "==", `${userId.id}`)
+        noteRef.get().then(function (querySnapshot) {
+            let notes = [];
+            let test = {};
+            querySnapshot.forEach(function (doc) {
+                let docData = doc.data()
+                let docId = doc.id
+                const data= {docData, docId};
+                notes.push(data)
+            });
+            /*for (let i =0; i< notes.length; i++){
+                test[notes[i].docId]= notes[i].docData
+            }*/
+            
+            props.addNotes(notes)
+            
+        })
+            .catch(function (error) {
+                console.log("Error getting documents: ", error);
+            });
+    }
+  
+   useEffect(()=>{    
+       //console.log(props.userId)
+        if (props.userId && props.userId.id) {
+            getNotes(props.userId)
+            
+        }
+    })
+    return (
     <div className="App" >
         <Header />
         <NoteGrid />
@@ -23,14 +57,16 @@ const HomePage = (props) => (
         </div>
 
     </div >
-);
+)};
 
 const mapStateToProps = state => ({
     addNoteActive: state.note.addNoteActive,
+    userId:state.user.currentUser
 })
 
 const mapDispatchToProps = dispatch => ({
-    toggleAddNewNote: () => dispatch(toggleAddNewNote)
+    toggleAddNewNote: () => dispatch(toggleAddNewNote),
+    addNotes: notes => dispatch(addNotes(notes))
 })
 
 

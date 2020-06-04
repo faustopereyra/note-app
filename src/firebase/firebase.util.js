@@ -65,10 +65,18 @@ export const getNotes = async (userId) => {
 
     firestore.collection("notes").where("user", "==", `${userId.id}`).get().then(function (querySnapshot) {
         let notes = [];
+        let test = {};
         querySnapshot.forEach(function (doc) {
-            notes.push(doc.data())
+            let docData = doc.data()
+            let docId = doc.id
+            const data= {docData, docId};
+            notes.push(data)
         });
-        return notes
+        for (let i =0; i< notes.length; i++){
+            test[notes[i].docId]= notes[i].docData
+        }
+        //addNotes(test);
+
     })
         .catch(function (error) {
             console.log("Error getting documents: ", error);
@@ -97,4 +105,6 @@ export const signInWithEmailAndPassword = (email, password) => {
         }
     );
 }
+
+
 export default firebase;

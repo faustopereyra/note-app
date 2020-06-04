@@ -3,13 +3,13 @@ import React from "react"
 import "./note.style.scss"
 
 export const Note = props => (
-    <div className={`sticky ${props.note.bgColor}`} >
-        <div class="note ">
-            <div class="note-title ">
+    <div className={`sticky back-green`} >
+        <div className="note ">
+            <div className="note-title ">
                 {props.note.title}
             </div>
-            <div class="note-text">
-                {props.note.maintext}
+            <div className="note-text">
+                {props.note.mainText}
             </div>
 
         </div>
