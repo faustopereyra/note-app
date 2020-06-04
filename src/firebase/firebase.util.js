@@ -39,6 +39,44 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     return userRef;
 }
 
+export const createNote = async (userId, note, additionalData) => {
+    const dbNote = firestore.collection(`notes`).doc()
+    const { title, mainText } = note
+    const user = userId.id
+    const createdAt = new Date();
+    try {
+        await dbNote.set({
+            title,
+            mainText,
+            user,
+            createdAt,
+            ...additionalData
+        });
+    } catch (error) {
+        console.log("error adding note", error.message)
+    }
+
+    return dbNote;
+}
+
+export const deleteNote = () => { }
+
+export const getNotes = async (userId) => {
+
+    firestore.collection("notes").where("user", "==", `${userId.id}`).get().then(function (querySnapshot) {
+        console.log(querySnapshot)
+        console.log(userId.id)
+        querySnapshot.forEach(function (doc) {
+            console.log(doc.id, " => ", doc.data());
+        });
+    })
+        .catch(function (error) {
+            console.log("Error getting documents: ", error);
+        });
+
+
+}
+
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 

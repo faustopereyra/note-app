@@ -4,10 +4,10 @@ TO - DO
 
 - [x] Sign in / Sign up
 
-- [ ] Autenticar Usuarios
+- [x] Autenticar Usuarios
 
-- [ ] Crear Notas
+- [x] Crear Notas
 
-- [ ] Almacenarlos en BD
+- [x] Almacenarlos en BD
 
-- [ ] Request Notas
+- [x] Request Notas

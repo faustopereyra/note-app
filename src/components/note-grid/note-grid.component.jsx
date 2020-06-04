@@ -1,13 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { Note } from "../note/note.component"
 
-import "./note-grid.style.scss";
+import { getNotes } from "../../firebase/firebase.util"
 
-export const NoteGrid = props => (
-    <div className="note-grid">
-        {props.notes.map(note => (
+
+import "./note-grid.style.scss";
+import { connect } from "react-redux";
+
+const NoteGrid = props => {
+    useEffect(() => {
+        //console.log(props.userId)
+        if (props.userId && props.userId.id) {
+            getNotes(props.userId)
+
+        }
+    })
+    return (
+        <div className="note-grid">
+
+        </div>
+    );
+}
+
+const mapStateToProps = state => ({
+    userId: state.user.currentUser
+})
+
+export default connect(mapStateToProps)(NoteGrid)
+
+/*{props.notes.map(note => (
             <Note key={note.id} note={note} />
-        ))}
-    </div>
-);
+        ))}*/

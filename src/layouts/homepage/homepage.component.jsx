@@ -1,20 +1,24 @@
 import React from 'react';
 
 import { Header } from "../../components/header/header.component"
-import { NoteGrid } from "../../components/note-grid/note-grid.component"
+import NoteGrid from "../../components/note-grid/note-grid.component"
 import OptionButton from "../../components/option-button/option-button.component"
 import AddNote from "../../components/add-note/add-note.component"
+
 import { connect } from 'react-redux';
+
 import { toggleAddNewNote } from "../../redux/note/note.actions";
 
 
 
-const HomePage = ({ addNoteActive, toggleAddNewNote }) => (
+
+const HomePage = (props) => (
     <div className="App" >
         <Header />
-        <OptionButton onClick={toggleAddNewNote} />
+        <NoteGrid />
+        <OptionButton onClick={props.toggleAddNewNote} />
         <div>
-            {addNoteActive ?
+            {props.addNoteActive ?
                 <AddNote /> : null}
         </div>
 
@@ -22,7 +26,7 @@ const HomePage = ({ addNoteActive, toggleAddNewNote }) => (
 );
 
 const mapStateToProps = state => ({
-    addNoteActive: state.note.addNoteActive
+    addNoteActive: state.note.addNoteActive,
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -31,6 +35,8 @@ const mapDispatchToProps = dispatch => ({
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+
+
 
 
 /*constructor() {
