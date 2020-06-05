@@ -1,6 +1,7 @@
 import React from "react";
 
 import { addCurrentTitle, toggleAddNewNote, deleteCurrentNote } from "../../redux/note/note.actions"
+import {toggleDisplayNote} from "../../redux/display-note/display.actions"
 
 
 import "./title-input.style.scss"
@@ -8,7 +9,11 @@ import { connect } from "react-redux";
 
 const TitleInput = props => {
     const trigfunc = () =>{
-        props.toggleAddNewNote()
+        if(props.type == "display"){
+            props.toggleDisplayNote()
+        } else{
+            props.toggleAddNewNote()
+        }
         props.deleteCurrentNote()
     }
     return(
@@ -21,7 +26,8 @@ const TitleInput = props => {
 const mapDispatchToProps = dispatch => ({
     addCurrentTitle: e => dispatch(addCurrentTitle(e)),
     deleteCurrentNote: () => dispatch(deleteCurrentNote()),
-    toggleAddNewNote: () => dispatch(toggleAddNewNote())
+    toggleAddNewNote: () => dispatch(toggleAddNewNote()),
+    toggleDisplayNote: () => dispatch(toggleDisplayNote())
 })
 
 export default connect(null, mapDispatchToProps)(TitleInput);

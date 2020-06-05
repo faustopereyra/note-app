@@ -4,11 +4,11 @@ import { Header } from "../../components/header/header.component"
 import NoteGrid from "../../components/note-grid/note-grid.component"
 import OptionButton from "../../components/option-button/option-button.component"
 import AddNote from "../../components/add-note/add-note.component"
+import NoteDisplay from "../../components/note-display/note-display.component"
 
 import { connect } from 'react-redux';
 
-import { toggleAddNewNote } from "../../redux/note/note.actions";
-import {addNotes} from "../../redux/note/note.actions"
+import { toggleAddNewNote, addNotes } from "../../redux/note/note.actions";
 import {firestore} from "../../firebase/firebase.util"
 
 
@@ -54,11 +54,16 @@ const HomePage = (props) => {
             {props.addNoteActive ?
                 <AddNote /> : null}
         </div>
+        <div>
+            {props.displayNoteActive ?
+                <NoteDisplay /> : null}
+        </div>
 
     </div >
 )};
 
 const mapStateToProps = state => ({
+    displayNoteActive: state.display.displayNoteActive,
     addNoteActive: state.note.addNoteActive,
     userId:state.user.currentUser
 })

@@ -62,6 +62,22 @@ export const createNote = async (userId, note, additionalData) => {
 
 export const deleteNote = () => { }
 
+export const updateNote = async (docId, note)=> {
+    console.log("docId: ", docId)
+    console.log("note: ", note)
+    const dbNote = firestore.collection("notes").doc(`${docId}`)
+    const { title, mainText, background } = note
+    try {
+        await dbNote.update({
+            title: title,
+            mainText: mainText,
+            background: background
+        });
+    } catch (error) {
+        console.log("error updating note", error.message)
+    }
+}
+
 export const getNotes = async (userId) => {
 
     firestore.collection("notes").where("user", "==", `${userId.id}`).get().then(function (querySnapshot) {
