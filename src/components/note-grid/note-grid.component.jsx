@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Note } from "../note/note.component"
+import Note from "../note/note.component"
 
 
 import "./note-grid.style.scss";

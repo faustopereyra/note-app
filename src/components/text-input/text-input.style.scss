@@ -1,8 +1,9 @@
 .new-text{
+    position: relative;
     resize: none;
-    background-color: #E9AC51;
+    background-color: inherit;
     margin: 25px 5%;
-    height: 250px;
+    height: 50vh;
     width: 90%;
     border: none;
     color: #222222;
@@ -14,5 +15,6 @@
 }
 
 .create-text{
-    background-color: #E9AC51;
+    background-color: inherit;
 }
+

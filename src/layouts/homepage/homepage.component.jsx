@@ -20,7 +20,6 @@ const HomePage = (props) => {
         const noteRef = firestore.collection("notes").where("user", "==", `${userId.id}`)
         noteRef.get().then(function (querySnapshot) {
             let notes = [];
-            let test = {};
             querySnapshot.forEach(function (doc) {
                 let docData = doc.data()
                 let docId = doc.id

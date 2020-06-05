@@ -41,7 +41,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
 export const createNote = async (userId, note, additionalData) => {
     const dbNote = firestore.collection(`notes`).doc()
-    const { title, mainText } = note
+    const { title, mainText, background } = note
     const user = userId.id
     const createdAt = new Date();
     try {
@@ -50,6 +50,7 @@ export const createNote = async (userId, note, additionalData) => {
             mainText,
             user,
             createdAt,
+            background,
             ...additionalData
         });
     } catch (error) {

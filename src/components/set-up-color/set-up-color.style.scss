@@ -1,0 +1,39 @@
+.color{
+    &-set-up{
+       float: left;
+       margin: 0 50px;
+    }
+    &-palette{
+        color: #222222;
+        font-size: 50px;
+    }
+    &-dropdown{
+        border-radius: 10px;
+        background-color: #FFFFE8;
+        padding: 20px 0;
+        width: 200px;
+        transform: translateX(-40%);
+        display: flex;
+        justify-content: space-evenly;
+
+        &__color-selector{
+            border-radius: 50%;
+                height: 30px;
+                width: 30px;
+                cursor: pointer;
+            &--1{
+                background-color: #fff951;
+                
+            }
+            &--2{
+                background-color: #84D15F;
+                
+            }
+            &--3{
+                background-color: #E9AC51;
+                
+            }
+        }
+    }
+}
+

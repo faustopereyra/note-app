@@ -1,6 +1,9 @@
 const INITIAL_STATE = {
     addNoteActive: false,
-    currentNote: null
+    colorOptionActive: false,
+    currentNote: {
+        background: 1
+    }
 };
 
 const noteReducer = (state = INITIAL_STATE, action) => {
@@ -29,12 +32,28 @@ const noteReducer = (state = INITIAL_STATE, action) => {
         case "DELETE_CURRENT_NOTE":
             return {
                 ...state,
-                currentNote: null
+                currentNote: {
+                    background: 1
+                }
             }
         case "ADD_NOTES":
             return{
                 ...state,
                 notes: action.payload
+            }
+        case "SET_BACKGROUND":
+            return{
+                ...state,
+                currentNote: {
+                    ...state.currentNote,
+                    background: action.payload
+                }
+            }
+        case "TOGGLE_COLOR_OPTIONS":
+            return{
+                ...state,
+                colorOptionActive: !state.colorOptionActive
+
             }
         default:
             return state;
