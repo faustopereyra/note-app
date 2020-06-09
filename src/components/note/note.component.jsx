@@ -1,6 +1,5 @@
 import React from "react"
 
-import {updateNote} from "../../firebase/firebase.util"
 
 import {connect} from "react-redux"
 

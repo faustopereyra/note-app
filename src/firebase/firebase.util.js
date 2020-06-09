@@ -67,6 +67,7 @@ export const updateNote = async (docId, note)=> {
     console.log("note: ", note)
     const dbNote = firestore.collection("notes").doc(`${docId}`)
     const { title, mainText, background } = note
+    
     try {
         await dbNote.update({
             title: title,
