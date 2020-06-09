@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 
-import { Header } from "../../components/header/header.component"
+import Header from "../../components/header/header.component"
 import NoteGrid from "../../components/note-grid/note-grid.component"
 import OptionButton from "../../components/option-button/option-button.component"
 import AddNote from "../../components/add-note/add-note.component"
@@ -9,7 +9,7 @@ import NoteDisplay from "../../components/note-display/note-display.component"
 import { connect } from 'react-redux';
 
 import { toggleAddNewNote, addNotes } from "../../redux/note/note.actions";
-import {firestore} from "../../firebase/firebase.util"
+import { firestore } from "../../firebase/firebase.util"
 
 
 
@@ -23,49 +23,50 @@ const HomePage = (props) => {
             querySnapshot.forEach(function (doc) {
                 let docData = doc.data()
                 let docId = doc.id
-                const data= {docData, docId};
+                const data = { docData, docId };
                 notes.push(data)
             });
             /*for (let i =0; i< notes.length; i++){
                 test[notes[i].docId]= notes[i].docData
             }*/
-            
+
             props.addNotes(notes)
-            
+
         })
             .catch(function (error) {
                 console.log("Error getting documents: ", error);
             });
     }
-  
-   useEffect(()=>{    
-       //console.log(props.userId)
+
+    useEffect(() => {
+        //console.log(props.userId)
         if (props.userId && props.userId.id) {
             getNotes(props.userId)
-            
+
         }
     })
     return (
-    <div className="App" >
-        <Header />
-        <NoteGrid />
-        <OptionButton onClick={props.toggleAddNewNote} />
-        <div>
-            {props.addNoteActive ?
-                <AddNote /> : null}
-        </div>
-        <div>
-            {props.displayNoteActive ?
-                <NoteDisplay /> : null}
-        </div>
+        <div className="App" >
+            <Header />
+            <NoteGrid />
+            <OptionButton onClick={props.toggleAddNewNote} />
+            <div>
+                {props.addNoteActive ?
+                    <AddNote /> : null}
+            </div>
+            <div>
+                {props.displayNoteActive ?
+                    <NoteDisplay /> : null}
+            </div>
 
-    </div >
-)};
+        </div >
+    )
+};
 
 const mapStateToProps = state => ({
     displayNoteActive: state.display.displayNoteActive,
     addNoteActive: state.note.addNoteActive,
-    userId:state.user.currentUser
+    userId: state.user.currentUser
 })
 
 const mapDispatchToProps = dispatch => ({
