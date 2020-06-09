@@ -60,9 +60,16 @@ export const createNote = async (userId, note, additionalData) => {
     return dbNote;
 }
 
-export const deleteNote = () => { }
+export const deleteNote = (docId) => {
+    const dbNote = firestore.collection("notes").doc(`${docId}`)
+    try {
+        dbNote.delete()
+    } catch (error) {
+        console.log("error deleting note", error.message)
+    }
+}
 
-export const updateNote = async (docId, note)=> {
+export const updateNote = async (docId, note) => {
     console.log("docId: ", docId)
     console.log("note: ", note)
     const dbNote = firestore.collection("notes").doc(`${docId}`)
@@ -86,11 +93,11 @@ export const getNotes = async (userId) => {
         querySnapshot.forEach(function (doc) {
             let docData = doc.data()
             let docId = doc.id
-            const data= {docData, docId};
+            const data = { docData, docId };
             notes.push(data)
         });
-        for (let i =0; i< notes.length; i++){
-            test[notes[i].docId]= notes[i].docData
+        for (let i = 0; i < notes.length; i++) {
+            test[notes[i].docId] = notes[i].docData
         }
         //addNotes(test);
 

@@ -1,19 +1,18 @@
 import React from "react";
 
-import {connect} from "react-redux"
+import { connect } from "react-redux"
 
 import TitleInput from "../title-input/title-input.component"
 import TextInput from "../text-input/text-input.component"
 import SetUpColor from "../set-up-color/set-up-color.component"
 import CustomButton from "../custom-button/custom-button.component";
-import { updateNote } from "../../firebase/firebase.util";
-import {toggleDisplayNote} from "../../redux/display-note/display.actions"
-import {deleteCurrentNote} from "../../redux/note/note.actions"
+import { updateNote, deleteNote } from "../../firebase/firebase.util";
+import { toggleDisplayNote } from "../../redux/display-note/display.actions"
+import { deleteCurrentNote } from "../../redux/note/note.actions"
 
-const NoteDisplay = ({note, currentNote, toggleDisplayNote, deleteCurrentNote})=>{
+const NoteDisplay = ({ note, currentNote, toggleDisplayNote, deleteCurrentNote }) => {
 
-    console.log("note objet: ", note)
-    
+
     const triggerFunc = () => {
         toggleDisplayNote();
         updateNote(note.docId, currentNote);
@@ -23,17 +22,18 @@ const NoteDisplay = ({note, currentNote, toggleDisplayNote, deleteCurrentNote})=
 
     return (
         <div className="front-window">
-            <div className={`note-creation ${ currentNote.background == 1 ? "back-yellow" : currentNote.background == 2 ? "back-green" : currentNote.background == 3 ? "back-orange " : ""}
+            <div className={`note-creation ${currentNote.background == 1 ? "back-yellow" : currentNote.background == 2 ? "back-green" : currentNote.background == 3 ? "back-orange " : ""}
         `}>
-            <TitleInput defaultTitle={`${note.docData.title}`} type="display"/>
-            <TextInput defaultText={`${note.docData.mainText}`} />
-            <div>
-            <SetUpColor  type="display"/>
-            <CustomButton setClass="btn-black"  onClick={()=> triggerFunc()}  >Done!</CustomButton>
+                <TitleInput defaultTitle={`${note.docData.title}`} type="display" />
+                <TextInput defaultText={`${note.docData.mainText}`} />
+                <div>
+                    <SetUpColor type="display" />
+                    <CustomButton setClass="btn-black" onClick={() => deleteNote(note.docId)}  >Delete</CustomButton>
+                    <CustomButton setClass="btn-black" onClick={() => triggerFunc()}  >Done!</CustomButton>
+                </div>
             </div>
         </div>
-        </div>
-        
+
     )
 }
 
