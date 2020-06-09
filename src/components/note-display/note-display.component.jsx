@@ -12,6 +12,10 @@ import { deleteCurrentNote } from "../../redux/note/note.actions"
 
 const NoteDisplay = ({ note, currentNote, toggleDisplayNote, deleteCurrentNote }) => {
 
+    const deleteTrig = () =>{
+        deleteNote(note.docId);
+        toggleDisplayNote();
+    }
 
     const triggerFunc = () => {
         toggleDisplayNote();
@@ -28,8 +32,8 @@ const NoteDisplay = ({ note, currentNote, toggleDisplayNote, deleteCurrentNote }
                 <TextInput defaultText={`${note.docData.mainText}`} />
                 <div>
                     <SetUpColor type="display" />
-                    <CustomButton setClass="btn-black" onClick={() => deleteNote(note.docId)}  >Delete</CustomButton>
                     <CustomButton setClass="btn-black" onClick={() => triggerFunc()}  >Done!</CustomButton>
+                    <CustomButton setClass="btn-black" onClick={() => deleteTrig()}  >Delete</CustomButton>
                 </div>
             </div>
         </div>

@@ -9,15 +9,11 @@ import { connect } from "react-redux";
 const NoteGrid = ({ userNotes, searchField }) => {
 
     const filteredNotes = () => {
-        return userNotes.filter(note => {
-            note.docData.title.toLowerCase().includes(searchField.toLowerCase())
-        })
-    }
 
-    const p = () => {
-        if (userNotes) return filteredNotes()
+        const p = userNotes.filter(note => note.docData.title.toLowerCase().includes(searchField.toLowerCase())
+        )
+        return p
     }
-    console.log("filteredNotes", p())
 
     return (
         <div className="note-grid">

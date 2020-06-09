@@ -14,7 +14,7 @@ import "./header.style.scss"
 
 //Add Functionality to Option 
 
-const Header = props => {
+const Header = ({currentSearch}) => {
 
     const handleChange = (e) => {
         currentSearch(e.target.value)

@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-    searchField: "h"
+    searchField: ""
 };
 
 const SearchReducer = (state = INITIAL_STATE, action) => {
